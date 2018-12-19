@@ -7,6 +7,7 @@ use App\Message;
 use App\User;
 use Auth;
 use View;
+use App\Services\Permissions;
 
 class MessageController extends Controller
 {
@@ -15,8 +16,9 @@ class MessageController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Permissions $permissions)
     {
+        $this->permissions = $permissions;
         $this->middleware('auth');
     }
 
@@ -32,6 +34,6 @@ class MessageController extends Controller
 		foreach(Auth::user()->messages() as $message) {
 			dd($message);
 		}
-        return View::make('admin.messages', ['data' => $messages]);
+        return View::make('admin.messages', ['data' => $messages, 'user_modules' => $this->permissions->getUserMasterModules()]);
     }
 }

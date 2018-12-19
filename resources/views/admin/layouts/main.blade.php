@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="utf-8">
+    <meta content="Bruno Chavez" name="author" />
+    <meta content="Sistema de control de Consultorios Dentales" name="description" />
+    <meta content="Consultorio Dental, Dentista, Consultorio" name="keywords" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Consultorio Dental">
-    <meta name="author" content="Bruno Chavez">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -52,7 +53,8 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    {{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')}}
+    {{ Html::script('/js/libraries.js') }}
+    {{-- Html::script('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')--}}
     {{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')}}
     {{ Html::script('/assets/js/bootstrap.js')}}
     {{ Html::script('/assets/js/excanvas.min.js')}}
@@ -73,6 +75,8 @@
     {{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js')}}
     {{ Html::script('/assets/js/matrix.popover.js')}}
     {{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js')}}
+
+    
 
     @yield('scripts')
 

@@ -16,8 +16,8 @@ Route::group(['domain' => '{subdomain}.dental.com'], function() {
 		Route::get('/', 'HomeController@index')->name('admin.home');
 
 		Route::get('/citas', 'HomeController@index')->name('admin.appointment');
-		Route::get('/prospecto', 'HomeController@index')->name('admin.prospect');
-		Route::get('/pacientes', 'HomeController@index')->name('admin.patient');
+		Route::get('/prospectos', 'ClientController@prospectIndex')->name('admin.prospect');
+		Route::get('/pacientes', 'ClientController@index')->name('admin.patient');
 
 		Route::group(['prefix' => 'inventario'], function() {
 			Route::get('/', 'HomeController@index')->name('admin.inventory');

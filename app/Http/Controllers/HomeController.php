@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\Permissions;
 
 class HomeController extends Controller
 {
@@ -11,8 +12,9 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Permissions $permissions)
     {
+        $this->permissions = $permissions;
         $this->middleware('auth');
     }
 
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+
+        return view('admin.home', [
+            'user_modules' => $this->permissions->getUserMasterModules()
+        ]);
     }
 }
